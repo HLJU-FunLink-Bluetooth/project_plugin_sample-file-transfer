@@ -10,7 +10,6 @@ import com.hlju.funlinkbluetooth.core.plugin.api.GamePlugin
 import com.hlju.funlinkbluetooth.core.plugin.api.PluginManifest
 import com.hlju.funlinkbluetooth.core.plugin.api.TransferStatus
 import com.hlju.funlinkbluetooth.core.plugin.api.TransferUpdate
-import com.hlju.funlinkbluetooth.core.plugin.api.support.LogHelper
 import com.hlju.funlinkbluetooth.core.plugin.api.support.OutgoingTransferManager
 import com.hlju.funlinkbluetooth.core.plugin.api.support.PayloadHelper
 import top.yukonga.miuix.kmp.basic.Icon
@@ -44,7 +43,6 @@ class FileTransferPlugin : GamePlugin(PluginManifest(id = "demo_file", name = "æ
 
     override fun onPayloadTransferUpdate(endpointId: String, update: TransferUpdate) {
         val payloadId = update.payloadId
-        val isIncoming = state.incomingFiles.containsKey(payloadId)
 
         if (update.status == TransferStatus.IN_PROGRESS) {
             val checkpoint = PayloadHelper.calcProgressCheckpoint(update)

@@ -49,7 +49,7 @@ class FileTransferPluginTest {
         override val isConnected: Boolean = true
         override val maxBytesSize: Int = 32768
 
-        override fun sendPayload(endpointIds: List<String>, payload: FunLinkPayload): Long? {
+        override fun sendPayload(endpointIds: List<String>, payload: FunLinkPayload): Long {
             sentPayloads += payload
             return 99L
         }
